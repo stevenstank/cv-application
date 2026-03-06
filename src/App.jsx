@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import GeneralInfo from './components/GeneralInfo';
+import Education from './components/Education';
+import Experience from './components/Experience';
+import CVPreview from './components/CVPreview';
+import './App.css';
+
+const initialGeneral = { name: '', email: '', phone: '' };
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Lifted state — shared between editor forms and the live preview
+  const [general, setGeneral] = useState(initialGeneral);
+  const [educationList, setEducationList] = useState([]);
+  const [experienceList, setExperienceList] = useState([]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <header className="app-header">
+        <h1>CV Builder</h1>
+      </header>
+      <div className="app-body">
+        {/* ── Left: editor forms ── */}
+        <aside className="editor-panel">
+          <GeneralInfo data={general} onSave={setGeneral} />
+          <Education entries={educationList} onChange={setEducationList} />
+          <Experience entries={experienceList} onChange={setExperienceList} />
+        </aside>
+
+        {/* ── Right: live preview ── */}
+        <main className="preview-panel">
+          <CVPreview
+            general={general}
+            educationList={educationList}
+            experienceList={experienceList}
+          />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
