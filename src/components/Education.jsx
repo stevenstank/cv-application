@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MonthYearPicker from './MonthYearPicker';
 import '../styles/Education.css';
 
 // Format "2022-06" → "June 2022"
@@ -67,24 +68,16 @@ function EducationEntry({ entry, onUpdate, onDelete }) {
             />
           </div>
           <div className="form-row">
-            <div className="form-group">
-              <label>Start Date</label>
-              <input
-                name="startDate"
-                type="month"
-                value={form.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>End Date</label>
-              <input
-                name="endDate"
-                type="month"
-                value={form.endDate}
-                onChange={handleChange}
-              />
-            </div>
+            <MonthYearPicker
+              label="Start Date"
+              value={form.startDate}
+              onChange={(v) => setForm((prev) => ({ ...prev, startDate: v }))}
+            />
+            <MonthYearPicker
+              label="End Date"
+              value={form.endDate}
+              onChange={(v) => setForm((prev) => ({ ...prev, endDate: v }))}
+            />
           </div>
           <div className="btn-group">
             <button type="submit" className="btn btn-primary">

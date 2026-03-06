@@ -6,24 +6,226 @@
 .app-header {
   background: linear-gradient(135deg, #2b6cb0 0%, #4299e1 100%);
   color: #fff;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 2rem;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 .app-header h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 
-.cv-container {
-  max-width: 760px;
-  margin: 2rem auto 4rem;
-  padding: 0 1rem;
+/* ── Two-column body ── */
+.app-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+  align-items: start;
+}
+
+.editor-panel {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+}
+
+.preview-panel {
+  position: sticky;
+  top: 1.5rem;
+}
+
+/* ===== Section cards ===== */
+.section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #bee3f8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== Entry cards (Education / Experience) ===== */
+.entry-card {
+  background: #f7fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ===== Form ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1.5px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.93rem;
+  font-family: inherit;
+  color: #2d3748;
+  background: #fff;
+  transition: border-color 0.18s;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+/* ===== Display (read-only view inside editor) ===== */
+.display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.display-item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: baseline;
+}
+
+.display-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.display-value {
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.responsibilities-value {
+  white-space: pre-wrap;
+}
+
+/* ===== Buttons ===== */
+.btn-group {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.btn {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.18s, transform 0.1s;
+  font-family: inherit;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: #3182ce;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+.btn-danger {
+  background: #fc8181;
+  color: #fff;
+}
+
+.btn-add {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: #3182ce;
+  border: 2px dashed #90cdf4;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+  margin-top: 0.25rem;
+}
+
+.btn-add:hover {
+  background: #ebf8ff;
+  border-color: #4299e1;
+}
+
+/* ===== Responsive — stack on narrow screens ===== */
+@media (max-width: 860px) {
+  .app-body {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 1.1rem 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .display-label {
+    min-width: 80px;
+  }
 }
 
 /* ===== Section cards ===== */
@@ -188,6 +390,43 @@
 .btn-add:hover {
   background: #ebf8ff;
   border-color: #4299e1;
+}
+
+/* ===== Month / Year picker ===== */
+.month-year-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.month-year-picker select,
+.month-year-picker input {
+  border: 1.5px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.93rem;
+  font-family: inherit;
+  color: #2d3748;
+  background: #fff;
+  transition: border-color 0.18s;
+  width: 100%;
+}
+
+.month-year-picker select:focus,
+.month-year-picker input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* hide browser spin arrows on the year number input */
+.month-year-picker input[type='number']::-webkit-inner-spin-button,
+.month-year-picker input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.month-year-picker input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /* ===== Responsive ===== */

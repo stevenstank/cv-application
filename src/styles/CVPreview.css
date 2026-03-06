@@ -1,0 +1,108 @@
+/* ===== Empty state ===== */
+.preview-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #a0aec0;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+}
+
+/* ===== Preview card ===== */
+.preview {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #1a202c;
+}
+
+/* ===== Header (name + contact) ===== */
+.preview-header {
+  border-bottom: 2px solid #2b6cb0;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.preview-name {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.preview-contact {
+  font-size: 0.88rem;
+  color: #4a5568;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.preview-contact .dot {
+  color: #a0aec0;
+}
+
+/* ===== Sections ===== */
+.preview-section {
+  margin-top: 1.4rem;
+}
+
+.preview-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #2b6cb0;
+  border-bottom: 1.5px solid #bee3f8;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ===== Individual entries ===== */
+.preview-entry {
+  margin-bottom: 1rem;
+}
+
+.preview-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.preview-entry-main {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+.preview-date {
+  font-size: 0.82rem;
+  color: #718096;
+  white-space: nowrap;
+}
+
+.preview-entry-sub {
+  font-size: 0.92rem;
+  color: #4a5568;
+  font-style: italic;
+  margin-top: 0.15rem;
+}
+
+.preview-responsibilities {
+  font-size: 0.88rem;
+  color: #4a5568;
+  margin: 0.4rem 0 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
