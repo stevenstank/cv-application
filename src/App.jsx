@@ -35,6 +35,16 @@ function App() {
           />
         </main>
       </div>
+      <footer className="app-footer">
+        Made with ❤️ by{' '}
+        <a
+          href="https://github.com/stevenstank"
+          target="_blank"
+          rel="noreferrer"
+        >
+          stevenstank
+        </a>
+      </footer>
     </div>
   );
 }

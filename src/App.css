@@ -1,6 +1,26 @@
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: #edf2f7;
+}
+
+.app-footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.app-footer a {
+  color: #2b6cb0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
 }
 
 .app-header {
